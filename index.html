@@ -52,13 +52,17 @@
     </header>
     <!-- 
     main part start -->
-    <main class="lg:container my-12 mx-auto bg-slate-700">
+    <main class="lg:container my-12 mx-auto">
       <div
         class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12"
         id="content"
       ></div>
-      <div class="text-center">
-        <button class="btn btn-error text-white text-xl normal-case px-11">
+      <div class="text-center" id="see_more">
+        <button
+          class="btn btn-error text-white text-xl normal-case px-11"
+          id="showAll"
+          onclick="showAlldata()"
+        >
           See More
         </button>
       </div>
