@@ -11,6 +11,8 @@ const allData = async () => {
   const data = await res.json();
   allDatas(data.data.tools);
 };
+
+//only 6 data will be showed
 const getData = (datas) => {
   const container = document.getElementById("content");
   datas.slice(0, 6).forEach((data) => {
@@ -57,7 +59,9 @@ const getData = (datas) => {
       </div>
         `;
   });
+  //stop
 };
+
 //see more part
 const allDatas = (datas) => {
   const container = document.getElementById("content");
@@ -106,21 +110,24 @@ const allDatas = (datas) => {
       </div>
         `;
   });
+  //loder stop
+  // spinner(false);
 };
 
 const showAlldata = () => {
+  spinner(true);
   document.getElementById("showAll");
-  // spinner(true);
   allData();
   const showBnt = document.getElementById("see_more");
   showBnt.style.display = "none";
 };
 
-// const spinner = (loading) => {
-//   if (loading) {
-//     document.getElementById("spinnner").classList.remove;
-//   } else {
-//     document.getElementById("spinnner").classList.add;
-//   }
-// };
+const spinner = (loading) => {
+  if (loading) {
+    document.getElementById("spinnner").classList.remove("hidden");
+  } else {
+    document.getElementById("spinnner").classList.add("hidden");
+  }
+};
+
 aiData();
