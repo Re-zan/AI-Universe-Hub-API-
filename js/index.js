@@ -49,9 +49,9 @@ const getData = (datas) => {
             </div>
           </div>
           <div class="mt-5">
-            <i
-              class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full "
-            ></i>
+          <label for="my-modal-3" ><i
+          class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full "
+        ></i></label>
           </div>
         
           </div>
@@ -100,8 +100,9 @@ const allDatas = (datas) => {
             </div>
           </div>
           <div class="mt-5">
+         
             <i
-              class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full "
+              class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full "  
             ></i>
           </div>
         
