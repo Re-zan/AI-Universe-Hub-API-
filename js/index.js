@@ -52,7 +52,7 @@ const getData = (datas) => {
       <label for="my-modal-3" class="btn bg-white border-0"  onclick="detailsData('${
         data.id
       }')"><i
-      class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full " 
+      class="fa-solid fa-arrow-right bg-[#fce9e9] text-[#EB5757] p-3 rounded-full " 
     ></i></label>
           </div>
         
@@ -107,7 +107,7 @@ const allDatas = (datas) => {
         <label for="my-modal-3" class="btn bg-white border-0"  onclick="detailsData('${
           data.id
         }')"><i
-        class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full " 
+        class="fa-solid fa-arrow-right bg-[#fce9e9] text-[#EB5757] p-3 rounded-full " 
       ></i></label>
           </div>
         
@@ -172,10 +172,10 @@ const showDetails = (data) => {
   const fetData = Object.values(data.features);
   if (fetData) {
     fetData.forEach((data) => {
-      ulFeat.innerHTML += `<li>${data.feature_name} </li>`;
+      ulFeat.innerHTML += `<li class="list-disc ml-4">${data.feature_name} </li>`;
     });
   } else {
-    ulFeat.innerHTML += `<li>No Data Found </li>`;
+    ulFeat.innerHTML += `<li class="list-disc ml-4">No Data Found </li>`;
   }
 
   //integration
@@ -184,10 +184,10 @@ const showDetails = (data) => {
   const integrasData = data.integrations;
   if (integrasData) {
     integrasData.forEach((data) => {
-      ulContent.innerHTML += `<li>${data} </li>`;
+      ulContent.innerHTML += `<li class="list-disc ml-4">${data} </li>`;
     });
   } else {
-    ulContent.innerHTML += `<li>No Data Found </li>`;
+    ulContent.innerHTML += `<li class="list-disc ml-4">No Data Found </li>`;
   }
 
   //right side

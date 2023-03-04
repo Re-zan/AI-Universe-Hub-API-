@@ -103,26 +103,35 @@
         <div class="modal-box relative sm:w-0 md:w-11/12 max-w-5xl">
           <label
             for="my-modal-3"
-            class="btn btn-sm btn-circle absolute right-0 top-0 bg-red-500 border-0"
+            class="btn btn-sm btn-circle absolute right-0 top-0 bg-red-500 border-0 z-10"
             >✕</label
           >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="bg-[#fce9e9] border border-red-500 rounded p-3">
-              <h3 class="font-semibold text-1xl" id="dep"></h3>
+              <h3 class="font-semibold text-2xl" id="dep"></h3>
 
               <div
                 class="grid grid-cols-1 md:grid-cols-3 gap-2 my-5 text-center"
               >
-                <div class="bg-white p-2">
-                  <p class="text-base text-green-500" id="basic_p"></p>
+                <div class="bg-white p-2 rounded">
+                  <p
+                    class="text-base text-green-500 pb-4 font-semibold"
+                    id="basic_p"
+                  ></p>
                 </div>
 
-                <div class="bg-white p-2">
-                  <p class="text-base text-orange-500" id="pro_p"></p>
+                <div class="bg-white p-2 rounded">
+                  <p
+                    class="text-base text-orange-500 font-semibold"
+                    id="pro_p"
+                  ></p>
                 </div>
 
-                <div class="bg-white p-2">
-                  <p class="text-base text-red-500" id="month_p"></p>
+                <div class="bg-white p-2 rounded">
+                  <p
+                    class="text-base text-red-500 font-semibold"
+                    id="month_p"
+                  ></p>
                 </div>
               </div>
 
@@ -143,8 +152,11 @@
             >
               <img alt="" id="content_img" />
 
-              <h2 id="right_side_title"></h2>
-              <p id="right_side_des"></p>
+              <h2
+                id="right_side_title"
+                class="font-semibold my-4 text-2xl"
+              ></h2>
+              <p id="right_side_des" class="text-lg"></p>
 
               <div
                 class="absolute top-8 right-8 text-white bg-red-500 rounded py-2 px-5 hidden"
