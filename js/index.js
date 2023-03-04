@@ -61,6 +61,7 @@ const getData = (datas) => {
       </div>
         `;
   });
+
   //stop
   spinner(false);
 };
@@ -116,6 +117,7 @@ const allDatas = (datas) => {
       </div>
         `;
   });
+
   //loder stop
   spinner(false);
 };
@@ -146,6 +148,7 @@ const detailsData = async (id) => {
   showDetails(data.data);
 };
 
+//modal data
 const showDetails = (data) => {
   //left side
   //title
@@ -217,5 +220,23 @@ const showDetails = (data) => {
     document.getElementById("aqqu").classList.add("hidden");
   }
 };
+
+const sortDateData = async () => {
+  const url = `https://openapi.programming-hero.com/api/ai/tools`;
+  const res = await fetch(url);
+  const data = await res.json();
+  sortDatess(data.data.tools);
+};
+//sort by date
+const sortDatess = (date) => {
+  date.sort(function (a, b) {
+    return new Date(b.published_in) - new Date(a.published_in);
+  });
+
+  const container = document.getElementById("content");
+  container.innerHTML = "";
+  getData(date);
+};
+
 spinner(true);
 aiData();
