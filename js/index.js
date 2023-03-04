@@ -15,7 +15,9 @@ const allData = async () => {
 //only 6 data will be showed
 const getData = (datas) => {
   const container = document.getElementById("content");
-  datas.slice(0, 6).forEach((data) => {
+  const slicedata = datas.slice(0, 6);
+
+  slicedata.forEach((data) => {
     // data
     container.innerHTML += `
         <div class="card w-100 bg-base-100 shadow-xl p-6 border border-[#e6e4e4]">
@@ -221,6 +223,7 @@ const showDetails = (data) => {
   }
 };
 
+//sort by date fetch
 const sortDateData = async () => {
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
   const res = await fetch(url);
