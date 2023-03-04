@@ -96,25 +96,61 @@
         </button>
       </div>
 
-      <!-- modal -->
-      <!-- The button to open modal -->
+      <!-- Main modal -->
+
+      <!-- Modal toggle -->
 
       <!-- Put this part before  -->
+
+      <!-- Put this part before  tag -->
       <input type="checkbox" id="my-modal-3" class="modal-toggle" />
       <div class="modal">
-        <div class="modal-box relative">
+        <div class="modal-box relative sm:w-0 md:w-11/12 max-w-5xl">
           <label
             for="my-modal-3"
             class="btn btn-sm btn-circle absolute right-2 top-2"
             >✕</label
           >
-          <h3 class="text-lg font-bold">
-            Congratulations random Internet user!
-          </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-[#fce9e9] border border-red-500 rounded p-3">
+              <h3 class="font-semibold text-1xl" id="dep"></h3>
+
+              <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-2 my-5 text-center"
+              >
+                <div class="bg-white p-2">
+                  <p class="text-base text-green-500" id="basic_p"></p>
+                </div>
+
+                <div class="bg-white p-2">
+                  <p class="text-base text-orange-500" id="pro_p"></p>
+                </div>
+
+                <div class="bg-white p-2">
+                  <p class="text-base text-red-500" id="month_p"></p>
+                </div>
+              </div>
+
+              <div class="flex justify-between">
+                <div>
+                  <h2 class="font-semibold text-2xl">Features</h2>
+                  <ul id="features"></ul>
+                </div>
+                <div>
+                  <h2 class="font-semibold text-2xl">Integrations</h2>
+                  <ol id="integra"></ol>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="text-center bg-base-100 shadow-xl p-4 rounded border border-[#e6e4e4]"
+            >
+              <img src="" alt="" />
+              <p>dfdfg</p>
+              <p>dfuioufd</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>

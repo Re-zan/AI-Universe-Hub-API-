@@ -49,9 +49,11 @@ const getData = (datas) => {
             </div>
           </div>
           <div class="mt-5">
-          <label for="my-modal-3" ><i
-          class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full "
-        ></i></label>
+      <label for="my-modal-3" class="btn bg-white border-0"  onclick="detailsData('${
+        data.id
+      }')"><i
+      class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full " 
+    ></i></label>
           </div>
         
           </div>
@@ -60,6 +62,7 @@ const getData = (datas) => {
         `;
   });
   //stop
+  spinner(false);
 };
 
 //see more part
@@ -78,19 +81,19 @@ const allDatas = (datas) => {
           />
         </figure>
         <div class="card-body ">
-        <h2 class="card-title font-semibold text-2xl">Features</h2>
-        <p class='border-b pb-6'>1. ${
-          data.features[0] === "" ? "" : data.features[0]
-        }<br>
-        2. ${data.features[1] === "" ? "" : data.features[1]}<br>
-        ${
-          typeof data.features[2] === "undefined"
-            ? ""
-            : "3. " + data.features[2]
-        }<br>
-     
-        </p>
-        <div class="card-actions boder-t flex justify-between  pt-4">
+          <h2 class="card-title font-semibold text-2xl">Features</h2>
+          <p class='border-b pb-6'>1. ${
+            data.features[0] === "" ? "" : data.features[0]
+          }<br>
+          2. ${data.features[1] === "" ? "" : data.features[1]}<br>
+          ${
+            typeof data.features[2] === "undefined"
+              ? ""
+              : "3. " + data.features[2]
+          }<br>
+       
+          </p>
+          <div class="card-actions boder-t flex justify-between  pt-4">
           <div>
             <h2 class="font-semibold text-2xl">${data.name}</h2>
             <div class="pt-3 text-[#585858] text-base">
@@ -100,10 +103,12 @@ const allDatas = (datas) => {
             </div>
           </div>
           <div class="mt-5">
-         
-            <i
-              class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full "  
-            ></i>
+      
+        <label for="my-modal-3" class="btn bg-white border-0"  onclick="detailsData('${
+          data.id
+        }')"><i
+        class="fa-solid fa-arrow-right bg-[#FEF7F7] text-[#EB5757] p-3 rounded-full " 
+      ></i></label>
           </div>
         
           </div>
@@ -112,9 +117,10 @@ const allDatas = (datas) => {
         `;
   });
   //loder stop
-  // spinner(false);
+  spinner(false);
 };
 
+//show all data part
 const showAlldata = () => {
   spinner(true);
   document.getElementById("showAll");
@@ -122,7 +128,7 @@ const showAlldata = () => {
   const showBnt = document.getElementById("see_more");
   showBnt.style.display = "none";
 };
-
+//lodaer part
 const spinner = (loading) => {
   if (loading) {
     document.getElementById("spinnner").classList.remove("hidden");
@@ -131,4 +137,58 @@ const spinner = (loading) => {
   }
 };
 
+//deatalis part
+const detailsData = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  showDetails(data.data);
+};
+
+const showDetails = (data) => {
+  //title
+  document.getElementById("dep").innerText = data.description;
+  //pricing
+  document.getElementById("basic_p").innerText = `
+  ${data.pricing ? data.pricing[0].price : "Free Of Cost/"}
+  ${data.pricing ? data.pricing[0].plan : "Basic"}
+   `;
+
+  document.getElementById("pro_p").innerText = `
+  ${data.pricing ? data.pricing[1].price : "Free Of Cost/"}
+  ${data.pricing ? data.pricing[1].plan : "Pro"}
+   `;
+
+  document.getElementById("month_p").innerText = `
+   ${data.pricing ? data.pricing[1].price : "Free Of Cost/"}
+   ${data.pricing ? data.pricing[1].plan : "Enterprise"}
+    `;
+
+  //features
+  const ulFeat = document.getElementById("features");
+  ulFeat.innerHTML = "";
+  const fetData = Object.values(data.features);
+  if (fetData) {
+    fetData.forEach((data) => {
+      ulFeat.innerHTML += `<li>${data.feature_name} </li>`;
+    });
+  } else {
+    ulFeat.innerHTML += `<li>No Data Found </li>`;
+  }
+  console.log(fetData);
+
+  //integration
+  const ulContent = document.getElementById("integra");
+  ulContent.innerHTML = "";
+  const integrasData = data.integrations;
+  if (integrasData) {
+    integrasData.forEach((data) => {
+      ulContent.innerHTML += `<li>${data} </li>`;
+    });
+  } else {
+    ulContent.innerHTML += `<li>No Data Found </li>`;
+  }
+};
+spinner(true);
 aiData();
