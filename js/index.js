@@ -147,6 +147,7 @@ const detailsData = async (id) => {
 };
 
 const showDetails = (data) => {
+  //left side
   //title
   document.getElementById("dep").innerText = data.description;
   //pricing
@@ -176,7 +177,6 @@ const showDetails = (data) => {
   } else {
     ulFeat.innerHTML += `<li>No Data Found </li>`;
   }
-  console.log(fetData);
 
   //integration
   const ulContent = document.getElementById("integra");
@@ -188,6 +188,33 @@ const showDetails = (data) => {
     });
   } else {
     ulContent.innerHTML += `<li>No Data Found </li>`;
+  }
+
+  //right side
+  // image
+  document
+    .getElementById("content_img")
+    .setAttribute("src", data.image_link[0]);
+  //rST
+  document.getElementById("right_side_title").innerText =
+    data.input_output_examples
+      ? data.input_output_examples[0].input
+      : "Can you give me any example?";
+
+  document.getElementById("right_side_des").innerText =
+    data.input_output_examples
+      ? data.input_output_examples[0].output
+      : "No! Not Yet! Take a break!!!";
+
+  //accuracy
+
+  const aqqqData = Math.round(data.accuracy.score * 100);
+
+  if (aqqqData) {
+    document.getElementById("aqqu").classList.remove("hidden");
+    document.getElementById("aqqu").innerText = aqqqData + "% accuracy";
+  } else {
+    document.getElementById("aqqu").classList.add("hidden");
   }
 };
 spinner(true);
