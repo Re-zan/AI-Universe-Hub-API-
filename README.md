@@ -2,4 +2,4 @@
 
 ### This is basically api and javascrpit reletaded project.
 
-![Live Link](https://ai-hub-assingment.netlify.app/)
+[Live Link](https://ai-hub-assingment.netlify.app/)
